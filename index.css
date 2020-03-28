@@ -59,7 +59,9 @@ h1, h2, h3, h4, h5, p, text {
 }
 
 #avatarImage {
+    margin-left: 16px;
     border-radius: 50%;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #title {
@@ -90,10 +92,14 @@ h1, h2, h3, h4, h5, p, text {
     height: 100%;
 }
 
-ul.horizontal {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+ul.horizontal {
     overflow: hidden;
 }
 
