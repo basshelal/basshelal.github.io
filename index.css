@@ -21,7 +21,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, p, text {
-    margin: 0 16px;
+    margin: 0;
     -webkit-text-fill-color: var(--text-color);
 }
 
@@ -41,7 +41,7 @@ header {
 }
 
 #avatarImage {
-    margin-left: 16px;
+    margin-left: 10%;
     margin-top: 16px;
     border-radius: 50%;
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -50,7 +50,7 @@ header {
 #title {
     font-family: 'Roboto Thin', sans-serif;
     -webkit-text-fill-color: #FFFFFF;
-    font-size: 10em;
+    font-size: 10rem;
 }
 
 section {
@@ -62,6 +62,7 @@ section hr {
     border-color: var(--primary-color);
     border-width: 2px;
     margin: 0;
+    margin-bottom: 32px;
 }
 
 .section-header {
@@ -89,8 +90,7 @@ section hr {
 }
 
 .section-content li {
-    margin-top: 0.75rem;
-    margin-bottom: 1.0rem;
+    margin-bottom: 1.25rem;
 }
 
 .centered-horizontal {
