@@ -1,7 +1,15 @@
+@import "animations.css";
+
+:root {
+    --primary-color: #880E4F;
+    --surface-color: #FFFFFF;
+    --text-color: #000000;
+    --link-color: #0069C0
+}
 
 html {
     height: 100%;
-    background-color: #ffffff;
+    background-color: var(--surface-color);
 }
 
 body {
@@ -14,47 +22,17 @@ body {
 
 h1, h2, h3, h4, h5, p, text {
     margin: 0 16px;
-    -webkit-text-fill-color: #000000;
+    -webkit-text-fill-color: var(--text-color);
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-o-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+a {
+    font-weight: bold;
+    text-decoration: underline;
+    -webkit-text-fill-color: var(--link-color);
 }
 
 header {
-    background-color: #880e4f;
+    background-color: var(--primary-color);
     box-shadow: 0 12px 12px -1px rgba(0, 0, 0, 0.4);
 }
 
@@ -71,14 +49,48 @@ header {
 
 #title {
     font-family: 'Roboto Thin', sans-serif;
-    -webkit-text-fill-color: #ffffff;
+    -webkit-text-fill-color: #FFFFFF;
     font-size: 10em;
 }
 
-#cv {
-    font-family: 'Roboto Thin', sans-serif;
-    -webkit-text-fill-color: #ffffff;
-    font-size: 5em;
+section {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+section hr {
+    border-color: var(--primary-color);
+    border-width: 2px;
+    margin: 0;
+}
+
+.section-header {
+
+}
+
+.section-header > * {
+    display: inline;
+}
+
+.section-header h1 {
+    font-family: 'Roboto Light', sans-serif;
+    -webkit-text-fill-color: var(--primary-color);
+}
+
+.section-header img {
+    position: relative;
+    top: -15px
+}
+
+.section-content, .section-content > * {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+.section-content li {
+    margin-top: 0.75rem;
+    margin-bottom: 1.0rem;
 }
 
 .centered-horizontal {
