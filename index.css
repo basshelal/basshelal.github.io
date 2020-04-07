@@ -1,5 +1,5 @@
 @import "animations.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 :root {
     --primary-color: #880E4F;
@@ -50,7 +50,8 @@ header {
 }
 
 #title {
-    font-family: 'Roboto Thin', sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
     -webkit-text-fill-color: #FFFFFF;
     font-size: 10rem;
 }
@@ -76,7 +77,8 @@ section hr {
 }
 
 .section-header h1 {
-    font-family: 'Roboto Light', sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
     -webkit-text-fill-color: var(--primary-color);
 }
 
