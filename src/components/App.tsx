@@ -1,6 +1,6 @@
 import * as React from "react"
 import {Component, ReactNode} from "react"
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import {BrowserRouter} from "react-router-dom"
 
 export default class App extends Component<{}, {}> {
 

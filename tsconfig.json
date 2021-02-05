@@ -23,6 +23,9 @@
     "jsx": "react",
     "outDir": "./dist"
   },
+  "exclude": [
+    "./legacy/*"
+  ],
   "include": [
     "./src/*"
   ]
