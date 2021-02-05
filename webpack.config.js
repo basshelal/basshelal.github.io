@@ -55,15 +55,14 @@ module.exports = {
         new CleanWebpackPlugin([outputDirectory]),
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            favicon: './public/favicon.ico',
-            title: 'basshelal.dev',
+            // favicon: './public/favicon.ico'
         }),
         new MiniCssExtractPlugin({
             filename: './css/[name].css',
             chunkFilename: './css/[id].css',
         }),
         new CopyPlugin([
-            {from: './src/client/Assets', to: 'assets'},
+            {from: './src/assets', to: 'assets'},
         ])
     ],
 };
