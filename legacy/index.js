@@ -30,4 +30,3 @@ function getLatestCommitDate() {
 }
 getGithubImage();
 getLatestCommitDate();
-//# sourceMappingURL=index.js.map

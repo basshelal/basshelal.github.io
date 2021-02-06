@@ -22,7 +22,7 @@ export class Header extends Component<{}, HeaderState> {
 
     public render(): ReactNode {
         return (
-            <Paper elevation={8} square style={{backgroundColor: "#880E4F"}}>
+            <Paper elevation={14} square style={{backgroundColor: "#880E4F"}}>
                 <Avatar src={this.state.avatarUrl} style={{width: 200, height: 200}} alt="Github avatar"/>
                 <Typography variant="h1">Bassam Helal</Typography>
                 <a href="https://github.com/basshelal" target="_blank" title="Github profile">
