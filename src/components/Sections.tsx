@@ -2,13 +2,14 @@ import * as React from "react"
 import {FC} from "react"
 import {List, ListItem, Typography} from "@material-ui/core"
 import {Link} from "./SmallComponents"
+import {P} from "./Utils"
 
 export interface SectionProps {
     imgSrc: string
     sectionTitle: string
 }
 
-export const Section: FC<SectionProps> = (props) => {
+export const Section: FC<SectionProps> = (props: P<SectionProps>) => {
     return (<>
         <img src={props.imgSrc} height={50} width={50} style={{display: "inline"}}/>
         <Typography variant="h2" style={{display: "inline"}}>{props.sectionTitle}</Typography>
@@ -17,7 +18,7 @@ export const Section: FC<SectionProps> = (props) => {
     </>)
 }
 
-export const ProjectsSection: FC = () => {
+export const ProjectsSection: FC = (props: P) => {
     return (
         <Section imgSrc="./res/images/projects.svg" sectionTitle="Projects">
             <List>
