@@ -1,6 +1,6 @@
-import React, {FC, useState} from "react"
+import React, {FC} from "react"
 import {Avatar, Paper, Typography} from "@material-ui/core"
-import {P} from "./Utils"
+import {P, state} from "./Utils"
 
 export interface HeaderState {
     avatarUrl?: string
@@ -8,7 +8,7 @@ export interface HeaderState {
 
 export const Header: FC = (props: P) => {
 
-    const [avatarUrl, setAvatarUrl] = useState<string>("")
+    const {get: avatarUrl, set: setAvatarUrl} = state<string>("")
 
     const fetchAvatarImage = async () => {
         const json: any = await (await fetch("https://api.github.com/users/basshelal")).json()
