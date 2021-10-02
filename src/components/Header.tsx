@@ -1,11 +1,13 @@
 import React, {FC} from "react"
 import {P} from "../Utils"
-import {Link, List, ListItem, Paper, Typography} from "@material-ui/core"
+import {List, ListItem, Paper, Typography} from "@material-ui/core"
+import {Link} from "react-router-dom"
 
 const LI: FC<{ href: string }> = (props: P<{ href: string }>) => {
     return (<ListItem style={{display: "flex", justifyContent: "center"}}>
-        <Link href={props.href}><Typography
-            style={{fontSize: "2rem", fontFamily: "Roboto", fontWeight: 300}}>{props.children}</Typography></Link>
+        <Link to={props.href}>
+            <Typography style={{fontSize: "2rem", fontFamily: "Roboto", fontWeight: 300}}>{props.children}</Typography>
+        </Link>
     </ListItem>)
 }
 

@@ -14,7 +14,7 @@ const Document: FC = () => {
             <Switch>
                 {/* Home */}
                 <Route exact path="/"><Redirect to="/cv"/></Route>
-                <Route exact path="/home"><Redirect to="/cv"/></Route>
+                <Route exact path="/home"><Redirect to="/"/></Route>
 
                 {/* Blog */}
                 <Route exact path="/blog"><BlogPage/></Route>
