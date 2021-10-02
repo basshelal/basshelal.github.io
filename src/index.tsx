@@ -15,6 +15,7 @@ const Document: FC = () => {
                 {/* Home */}
                 <Route exact path="/"><Redirect to="/cv"/></Route>
                 <Route exact path="/home"><Redirect to="/"/></Route>
+                <Route exact path="/index.html"><Redirect to="/"/></Route>
 
                 {/* Blog */}
                 <Route exact path="/blog"><BlogPage/></Route>
