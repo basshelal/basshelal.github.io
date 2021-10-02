@@ -2,7 +2,7 @@ import * as React from "react"
 import {FC} from "react"
 import {List, Typography} from "@material-ui/core"
 import {Item, Link, Text} from "./SmallComponents"
-import {P} from "./Utils"
+import {P} from "../../../Utils"
 
 export interface SectionProps {
     sectionTitle: string

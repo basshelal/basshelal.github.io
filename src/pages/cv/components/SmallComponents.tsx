@@ -1,6 +1,6 @@
 import * as React from "react"
 import {FC} from "react"
-import {P} from "./Utils"
+import {P} from "../../../Utils"
 import {ListItem, Typography} from "@material-ui/core"
 
 export const Text: FC = (props: P) => {
