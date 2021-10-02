@@ -14,8 +14,8 @@ export const CV: FC = () => {
         <Header/>
         <ProjectsSection/>
         <TechnicalSkillsSection/>
-        <SoftSkillSection/>
         <EducationSection/>
+        <SoftSkillSection/>
         <InterestsSection/>
     </>)
 }
