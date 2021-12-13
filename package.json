@@ -16,6 +16,8 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-lazy-load-image-component": "^1.5.1",
+    "react-markdown": "^7.1.1",
+    "remark-gfm": "^3.0.1",
     "react-pdf": "^5.4.0",
     "react-player": "^2.8.1",
     "react-redux": "^7.2.2",
