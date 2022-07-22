@@ -1,7 +1,6 @@
 import React, {FC} from "react"
-import {Avatar, Button, Typography} from "@material-ui/core"
+import {Avatar, Paper, Typography} from "@material-ui/core"
 import {P, state} from "../../../Utils"
-import {PictureAsPdf} from "@material-ui/icons"
 
 export const Header: FC = (props: P) => {
 
@@ -14,42 +13,31 @@ export const Header: FC = (props: P) => {
     })()
 
     return (<>
-        <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingTop: "16px", marginBottom: "-16px"
-        }}>
-            <a title="Printable PDF Version" href="res/Bassam-Helal-CV.pdf" target="_blank">
-                <Button style={{
-                    color: "#880E4F",
+        <Paper square elevation={14} style={{backgroundColor: "#880E4F"}}>
+            <div style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0px"
+            }}>
+                <Avatar src={avatarUrl} style={{width: 150, height: 150, margin: "16px"}}
+                        alt="Github avatar" title="Github avatar"/>
+                <Typography style={{
                     fontFamily: "Roboto",
-                    fontWeight: 300,
-                    fontSize: "3rem",
-                    textTransform: "none"
-                }}><PictureAsPdf style={{fontSize: "3rem"}}/></Button>
-            </a>
-        </div>
+                    fontWeight: 100,
+                    fontSize: "5.5rem",
+                    color: "#FFFFFF"
+                }}>Bassam Helal</Typography>
+            </div>
+        </Paper>
         <div style={{
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
-            padding: "0px"
-        }}>
-            <Avatar src={avatarUrl} style={{width: 150, height: 150, margin: "16px"}}
-                    alt="Github avatar" title="Github avatar"/>
-            <Typography variant="h1" style={{
-                fontFamily: "Roboto",
-                fontWeight: 100,
-                color: "#880E4F"
-            }}>Bassam Helal</Typography>
-        </div>
-        <div style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
+            marginTop: "8px",
+            marginBottom: "-16px"
         }}>
             <a href="https://github.com/basshelal" target="_blank" title="Github profile" style={{margin: "16px"}}>
                 <img alt="Github profile" height="50" width="50" src="../../../res/images/github.svg"/></a>

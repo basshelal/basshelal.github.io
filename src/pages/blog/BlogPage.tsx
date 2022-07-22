@@ -8,6 +8,6 @@ import {P} from "../../Utils"
 //  search should use query params in url
 export const BlogPage: FC = (props: P) => {
     return (<>
-        Blog
+        No posts yet
     </>)
 }
