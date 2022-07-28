@@ -1,6 +1,7 @@
 import React, {FC} from "react"
 import {Avatar, Paper, Typography} from "@material-ui/core"
 import {P, state} from "../../../Utils"
+import styled from "styled-components"
 
 export const Header: FC = (props: P) => {
 
@@ -12,28 +13,41 @@ export const Header: FC = (props: P) => {
         if (!!url) setAvatarUrl(url)
     })()
 
+    const NameTypography = styled(Typography)`{
+      font-family: "Roboto", sans-serif;
+      font-weight: 100;
+      font-size: clamp(2.25rem, 10vw, 5.5rem);
+      color: #FFFFFF;
+    }`
+
+    const GitHubAvatar = styled(Avatar)`{
+      margin: 16px;
+      width: clamp(64px, 15vw, 128px);
+      height: auto;
+    }`
+
     return (<>
-        <Paper square elevation={14} style={{backgroundColor: "#880E4F"}}>
+        <Paper square elevation={8} style={{
+            backgroundColor: "#880E4F",
+            borderBottomLeftRadius: "16px",
+            borderBottomRightRadius: "16px"
+        }}>
             <div style={{
                 display: "flex",
                 flexDirection: "row",
+                alignContent: "end",
                 alignItems: "center",
                 justifyContent: "center",
                 padding: "0px"
             }}>
-                <Avatar src={avatarUrl} style={{width: 150, height: 150, margin: "16px"}}
-                        alt="Github avatar" title="Github avatar"/>
-                <Typography style={{
-                    fontFamily: "Roboto",
-                    fontWeight: 100,
-                    fontSize: "5.5rem",
-                    color: "#FFFFFF"
-                }}>Bassam Helal</Typography>
+                <GitHubAvatar src={avatarUrl} alt="Github avatar" title="Github avatar"/>
+                <NameTypography>Bassam Helal</NameTypography>
             </div>
         </Paper>
         <div style={{
             display: "flex",
             flexDirection: "row",
+            flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
             marginTop: "8px",

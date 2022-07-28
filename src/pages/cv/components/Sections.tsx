@@ -70,6 +70,7 @@ export const TechnicalSkillsSection: FC = () => {
             <I>Intermediate proficiency in <H>Embedded Systems</H> concepts and protocols</I>
             <I>Intermediate proficiency in <H>bash</H> scripting and <H>GNU/Linux</H></I>
             <I>Intermediate proficiency in <H>Android Development</H></I>
+            <I>Intermediate proficiency in <H>React.js</H></I>
             <I>Basic proficiency in <H>Assembly Language</H> (x86 and ARM)</I>
             <I>Basic proficiency in <H>Embedded C++</H></I>
             <br/>
@@ -78,7 +79,7 @@ export const TechnicalSkillsSection: FC = () => {
             <I>Extensive experience with <H>Functional Programming</H> concepts and principles</I>
             <I>Moderate experience using various embedded platforms
                 such as <H>ESP32</H> and <H>Raspberry Pi Pico</H></I>
-            <I>Moderate experience building, deploying and updating <H>Full-Stack Web Apps</H></I>
+            <I>Moderate experience building and updating <H>Full-Stack Web Apps</H></I>
             <I>Moderate experience <H>contributing to Open-Source Projects</H></I>
             <I>Limited experience with <H>Project Planning and Management</H></I>
         </List>
