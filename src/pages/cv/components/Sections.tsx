@@ -72,7 +72,7 @@ export const TechnicalSkillsSection: FC = () => {
             <I>Intermediate proficiency in <H>Android Development</H></I>
             <I>Intermediate proficiency in <H>React.js</H></I>
             <I>Basic proficiency in <H>Assembly Language</H> (x86 and ARM)</I>
-            <I>Basic proficiency in <H>Embedded C++</H></I>
+            <I>Basic proficiency in <H>(Embedded) C++</H></I>
             <br/>
             <I>Extensive experience using <H>Test Driven Development</H></I>
             <I>Extensive experience with <H>Object Oriented Design</H> and principles</I>
@@ -91,11 +91,10 @@ export const EducationSection: FC = () => {
         <List>
             <I><H>BSc. Software Engineering</H> from Swansea University in 2019: <b>First Class with Honors</b></I>
             <I><H>MSc. Advanced Software Technology</H> from Swansea University in 2020: <b>Merit</b></I>
-            <Text>
-                Both degrees required a project with a written dissertation, which both received
-                a <H>First Class</H> and <H>Distinction</H> mark respectively.
-            </Text>
-            <br/>
+            <I>
+                Both degrees required a project with a written dissertation, which both received <H>First Class</H> (BSc)
+                and <H>Distinction</H> (MSc) marks.
+            </I>
             <I>Some modules taken across both courses:</I>
         </List>
         <List style={{paddingLeft: "16px", paddingRight: "16px", paddingTop: "0px"}}>
