@@ -3,6 +3,7 @@ import {HTMLAttributes, PropsWithChildren} from "react"
 import {GithubImage} from "./components/GithubImage"
 import styled from "styled-components"
 import {Button, ButtonProps, List, ListItem} from "@material-ui/core"
+import {Link} from "react-router-dom"
 
 export const Centered = (props: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {
     return (<div style={{
@@ -57,8 +58,8 @@ export const Home = () => {
         <Centered><NameHeading>Bassam Helal</NameHeading></Centered>
         <Centered><Subtitle></Subtitle></Centered>
         <List>
-            <PageButton href="/cv">CV</PageButton>
-            <PageButton href="/blog">Blog</PageButton>
+            <Link to="/cv" style={{textDecoration: "none"}}><PageButton>CV</PageButton></Link>
+            <Link to="/blog" style={{textDecoration: "none"}}><PageButton>Blog</PageButton></Link>
         </List>
     </>)
 }
