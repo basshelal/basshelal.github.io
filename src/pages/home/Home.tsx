@@ -16,16 +16,7 @@ export const Centered = (props: PropsWithChildren<HTMLAttributes<HTMLDivElement>
     }} {...props}>{props.children}</div>)
 }
 
-export const Home = () => {
-
-    const ImageStyle: React.CSSProperties = {
-        width: "256px",
-        height: "256px",
-        marginTop: "64px",
-        boxShadow: "0 0 10px 5px #0000007F"
-    }
-
-    const NameHeading = styled.h1`{
+const NameHeading = styled.h1`{
       font-family: "Roboto", sans-serif;
       font-weight: 100;
       font-size: 8rem;
@@ -34,7 +25,7 @@ export const Home = () => {
       margin: 0;
     }`
 
-    const Subtitle = styled.h2`{
+const Subtitle = styled.h2`{
       font-family: "Roboto", sans-serif;
       font-weight: 300;
       font-size: 3rem;
@@ -42,6 +33,15 @@ export const Home = () => {
       padding: 0;
       margin: 0;
     }`
+
+export const Home = () => {
+
+    const ImageStyle: React.CSSProperties = {
+        width: "256px",
+        height: "256px",
+        marginTop: "64px",
+        boxShadow: "0 0 10px 5px #0000007F"
+    }
 
     const PageButton = (props: PropsWithChildren<ButtonProps>) => {
         return (<ListItem>

@@ -2,44 +2,38 @@ import * as React from "react"
 import {FC} from "react"
 import {List, ListItem, Typography} from "@material-ui/core"
 import {P} from "../../../Utils"
-import {TypographyProps} from "@material-ui/core/Typography/Typography"
 
-const Text: FC<P<TypographyProps>> = (props: P<TypographyProps>) => {
-    const defaultProps: TypographyProps = {
-        style: {
-            fontFamily: "Roboto",
-            fontWeight: 400,
-            fontSize: "1rem",
-            padding: 0
-        }
+const Text = (props: P) => {
+    const style: React.CSSProperties = {
+        fontFamily: "Roboto",
+        fontWeight: 400,
+        fontSize: "1rem",
+        padding: 0
     }
-    const mergedProps: TypographyProps = {
-        ...defaultProps,
-        ...props
-    }
-    return (<Typography {...mergedProps}>{props.children}</Typography>)
+    return (<div style={style}>{props.children}</div>)
 }
 
 // Item
 const I: FC = (props: P) => {
-    return (<ListItem style={{padding: "4px"}}>
+    const style: React.CSSProperties = {
+        padding: "6px",
+    }
+    return (<ListItem style={style}>
         <Text>{props.children}</Text>
     </ListItem>)
 }
 
-const Link: FC<{ href: string }> = (props: P<{ href: string }>) => {
-    return (<a href={props.href} target="_blank">{props.children}</a>)
-}
-
 // Highlight
 const H: FC = (props: P) => {
-    return (<Typography display="inline" style={{
+    const style: React.CSSProperties = {
+        display: "inline",
         fontFamily: "Roboto",
         fontWeight: 600,
         fontSize: "1rem",
         padding: 0,
         color: "#880E4F"
-    }}>{props.children}</Typography>)
+    }
+    return (<div style={style}>{props.children}</div>)
 }
 
 export interface SectionProps {
@@ -92,7 +86,8 @@ export const EducationSection: FC = () => {
             <I><H>BSc. Software Engineering</H> from Swansea University in 2019: <b>First Class with Honors</b></I>
             <I><H>MSc. Advanced Software Technology</H> from Swansea University in 2020: <b>Merit</b></I>
             <I>
-                Both degrees required a project with a written dissertation, which both received <H>First Class</H> (BSc)
+                Both degrees required a project with a written dissertation, which both received <H>First
+                Class</H> (BSc)
                 and <H>Distinction</H> (MSc) marks.
             </I>
             <I>Some modules taken across both courses:</I>

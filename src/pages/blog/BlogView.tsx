@@ -2,20 +2,13 @@ import React, {FC} from "react"
 import {P} from "../../Utils"
 
 export interface BlogPost {
+    readonly fileName: string,
     /** Title of the post, ideally should not be modified after publish*/
     readonly title: string,
-    /** Unique identifier of the post, this is used for the url and should NEVER change, even if everything else changed */
-    readonly id: string,
     /** Date the post was published, should never be modified */
-    readonly datePublished: Date,
-    /** Date the post was last modified, if never modified then null and will not show in the view */
-    readonly dateLastModified?: Date,
-    /** Subtitle, a small sentence like a blurb under the title */
-    readonly subtitle?: string,
+    readonly datePublished: string,
     /** Tags this post belongs to, this can (but should not) be empty */
     readonly tags: Array<string>,
-    /** The path of the file of the contents of this post, we will use .md (Markdown) files */
-    readonly contentFilePath: string,
 }
 
 // View receives this from the list (which scanned all posts) and this is used to render the whole page

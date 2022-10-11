@@ -2,23 +2,23 @@ import React, {AnchorHTMLAttributes, FC, PropsWithChildren} from "react"
 import {P} from "../../../Utils"
 import styled from "styled-components"
 
+const NameHeading = styled.h1`{
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 6rem;
+  color: #880E4F;
+  padding: 0;
+  margin: 0;
+}`
+
+const StyledLink = styled.a`{
+  margin: 8px 16px 16px 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+}`
+
 export const SimpleHeader: FC = (props: P) => {
-
-    const NameHeading = styled.h1`{
-      font-family: "Roboto", sans-serif;
-      font-weight: 100;
-      font-size: 6rem;
-      color: #880E4F;
-      padding: 0;
-      margin: 0;
-    }`
-
-    const StyledLink = styled.a`{
-      margin: 8px 16px 16px 16px;
-      font-family: "Roboto", sans-serif;
-      font-weight: 300;
-      font-size: 1.2rem;
-    }`
 
     const Link = (props: PropsWithChildren<AnchorHTMLAttributes<any>>): React.ReactElement => {
         return (<StyledLink target="_blank" {...props}>{props.children}</StyledLink>)
