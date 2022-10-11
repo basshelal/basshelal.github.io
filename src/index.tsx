@@ -13,7 +13,6 @@ const Document: FC = () => {
             {/* Home */}
             <Route exact path="/home"><Home/></Route>
             <Route exact path="/"><Redirect to="/home"/></Route>
-            {/*<Route exact path="/index.html"><Redirect to="/home"/></Route>*/}
 
             {/* Blog */}
             <Route exact path="/blog"><BlogPage/></Route>
