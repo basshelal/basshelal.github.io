@@ -1,7 +1,7 @@
 import * as React from "react"
 import {FC} from "react"
 import * as ReactDOM from "react-dom"
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import {CV} from "./pages/cv/CV"
 import {Blog} from "./pages/blog/Blog"
 import {Home} from "./pages/home/Home"
