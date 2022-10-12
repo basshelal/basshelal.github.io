@@ -1,7 +1,7 @@
 import * as React from "react"
 import {FC} from "react"
 import {List, ListItem, Typography} from "@material-ui/core"
-import {P} from "../../../Utils"
+import {P} from "../../../common/Utils"
 
 const Text = (props: P) => {
     const style: React.CSSProperties = {

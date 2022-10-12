@@ -1,15 +1,6 @@
 import React, {FC} from "react"
-import {P} from "../../Utils"
-
-export interface BlogPost {
-    readonly fileName: string,
-    /** Title of the post, ideally should not be modified after publish*/
-    readonly title: string,
-    /** Date the post was published, should never be modified */
-    readonly datePublished: string,
-    /** Tags this post belongs to, this can (but should not) be empty */
-    readonly tags: Array<string>,
-}
+import {P} from "../../common/Utils"
+import {BlogPost} from "../../common/BlogPost"
 
 // View receives this from the list (which scanned all posts) and this is used to render the whole page
 export interface BlogViewProps {

@@ -1,5 +1,5 @@
 import React, {AnchorHTMLAttributes, FC, PropsWithChildren} from "react"
-import {P} from "../../../Utils"
+import {P} from "../../../common/Utils"
 import styled from "styled-components"
 
 const NameHeading = styled.h1`{
@@ -18,12 +18,11 @@ const StyledLink = styled.a`{
   font-size: 1.2rem;
 }`
 
-export const SimpleHeader: FC = (props: P) => {
+const Link = (props: PropsWithChildren<AnchorHTMLAttributes<any>>): React.ReactElement => {
+    return (<StyledLink target="_blank" {...props}>{props.children}</StyledLink>)
+}
 
-    const Link = (props: PropsWithChildren<AnchorHTMLAttributes<any>>): React.ReactElement => {
-        return (<StyledLink target="_blank" {...props}>{props.children}</StyledLink>)
-    }
-
+export const CVHeader: FC = (props: P) => {
     return (<>
         <div style={{
             display: "flex",
