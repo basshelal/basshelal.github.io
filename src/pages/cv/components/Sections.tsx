@@ -1,7 +1,6 @@
 import * as React from "react"
-import {FC} from "react"
-import {List, ListItem, Typography} from "@material-ui/core"
 import {P} from "../../../common/Utils"
+import {List, ListItem, Typography} from "@mui/material"
 
 const Text = (props: P) => {
     const style: React.CSSProperties = {
@@ -14,9 +13,9 @@ const Text = (props: P) => {
 }
 
 // Item
-const I: FC = (props: P) => {
+const I = (props: P) => {
     const style: React.CSSProperties = {
-        padding: "6px",
+        padding: "6px"
     }
     return (<ListItem style={style}>
         <Text>{props.children}</Text>
@@ -24,7 +23,7 @@ const I: FC = (props: P) => {
 }
 
 // Highlight
-const H: FC = (props: P) => {
+const H = (props: P) => {
     const style: React.CSSProperties = {
         display: "inline",
         fontFamily: "Roboto",
@@ -40,7 +39,7 @@ export interface SectionProps {
     title: string
 }
 
-export const Section: FC<SectionProps> = (props: P<SectionProps>) => {
+export const Section = (props: P<SectionProps>) => {
     return (<div style={{paddingLeft: "16px", paddingRight: "16px"}}>
         <Typography style={{
             fontFamily: "Roboto",
@@ -55,7 +54,7 @@ export const Section: FC<SectionProps> = (props: P<SectionProps>) => {
     </div>)
 }
 
-export const TechnicalSkillsSection: FC = () => {
+export const TechnicalSkillsSection = () => {
     return (<Section title="Technical Skills">
         <List>
             <I>Advanced proficiency in <H>ANSI C</H> for <H>Embedded Systems</H></I>
@@ -80,7 +79,7 @@ export const TechnicalSkillsSection: FC = () => {
     </Section>)
 }
 
-export const EducationSection: FC = () => {
+export const EducationSection = () => {
     return (<Section title="Education">
         <List>
             <I><H>BSc. Software Engineering</H> from Swansea University in 2019: <b>First Class with Honors</b></I>
@@ -104,7 +103,7 @@ export const EducationSection: FC = () => {
     </Section>)
 }
 
-export const SoftSkillSection: FC = () => {
+export const SoftSkillSection = () => {
     return (<Section title="Soft Skills">
         <List>
             <I>Strong drive and enthusiasm for high quality, <H>scalable and maintainable software</H></I>
@@ -120,7 +119,7 @@ export const SoftSkillSection: FC = () => {
     </Section>)
 }
 
-export const InterestsSection: FC = () => {
+export const InterestsSection = () => {
     return (<Section title="Interests">
         <List>
             <I>I am a passionate advocate for Free (as in Freedom) software.

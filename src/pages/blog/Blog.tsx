@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {List, ListItem} from "@material-ui/core"
+import {List, ListItem} from "@mui/material"
 import {BlogHeader} from "./components/BlogHeader"
 import {BlogFooter} from "./components/BlogFooter"
 import {BlogPost} from "../../common/BlogPost"

@@ -1,31 +1,32 @@
 import * as React from "react"
-import {FC} from "react"
-import * as ReactDOM from "react-dom"
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import {createRoot} from "react-dom/client"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 import {CV} from "./pages/cv/CV"
 import {Blog} from "./pages/blog/Blog"
 import {Home} from "./pages/home/Home"
 import {NotFound} from "./pages/not-found/NotFound"
+import {BlogView} from "./pages/blog/BlogView"
 
-const Document: FC = () => {
+const Document = () => {
     return (<BrowserRouter>
-        <Switch>
+        <Routes>
             {/* Home */}
-            <Route exact path="/"><Home/></Route>
+            <Route path="/" element={<Home/>}/>
 
             {/* Blog */}
-            <Route exact path="/blog"><Blog/></Route>
+            <Route path="/blog" element={<Blog/>}/>
+
+            {/* Blog Post */}
+            <Route path="/blog/:fileName" element={<BlogView/>}></Route>
 
             {/* CV */}
-            <Route exact path="/cv"><CV/></Route>
+            <Route path="/cv" element={<CV/>}/>
 
             {/* Not Found */}
-            <Route exact path="*"><NotFound/></Route>
-        </Switch>
+            <Route path="*" element={<NotFound/>}/>
+        </Routes>
     </BrowserRouter>)
 }
 
-ReactDOM.render(
-    <Document/>,
-    document.getElementById("root")
-)
+createRoot(document.getElementById("root")!)
+    .render(<Document/>)

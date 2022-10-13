@@ -2,7 +2,7 @@ import * as React from "react"
 import {HTMLAttributes, PropsWithChildren} from "react"
 import {GithubImage} from "./components/GithubImage"
 import styled from "styled-components"
-import {Button, ButtonProps, List, ListItem} from "@material-ui/core"
+import {Button, ButtonProps, List, ListItem} from "@mui/material"
 import {Link} from "react-router-dom"
 
 export const Centered = (props: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {

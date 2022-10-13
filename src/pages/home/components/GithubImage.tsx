@@ -1,6 +1,6 @@
 import * as React from "react"
 import {PropsWithChildren, useState} from "react"
-import {Avatar, AvatarProps} from "@material-ui/core"
+import {Avatar, AvatarProps} from "@mui/material"
 
 export const GithubImage = (props: PropsWithChildren<AvatarProps>) => {
     const [avatarUrl, setAvatarUrl] = useState<string>("");

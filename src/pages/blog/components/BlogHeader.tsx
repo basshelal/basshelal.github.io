@@ -1,8 +1,8 @@
-import React, {FC, PropsWithChildren} from "react"
-import {Paper, Typography} from "@material-ui/core"
+import React, {PropsWithChildren} from "react"
+import {Paper, Typography} from "@mui/material"
 import {Link} from "react-router-dom"
 
-export const BlogHeader: FC = (props: PropsWithChildren<{}>) => {
+export const BlogHeader = (props: PropsWithChildren<{}>) => {
     const paperStyle: React.CSSProperties = {
         backgroundColor: "#880E4F",
         minWidth: "100vw"

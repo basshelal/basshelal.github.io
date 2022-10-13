@@ -1,4 +1,4 @@
-import React, {AnchorHTMLAttributes, FC, PropsWithChildren} from "react"
+import React, {AnchorHTMLAttributes, PropsWithChildren} from "react"
 import {P} from "../../../common/Utils"
 import styled from "styled-components"
 
@@ -22,7 +22,7 @@ const Link = (props: PropsWithChildren<AnchorHTMLAttributes<any>>): React.ReactE
     return (<StyledLink target="_blank" {...props}>{props.children}</StyledLink>)
 }
 
-export const CVHeader: FC = (props: P) => {
+export const CVHeader = (props: P) => {
     return (<>
         <div style={{
             display: "flex",

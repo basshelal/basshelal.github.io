@@ -1,4 +1,4 @@
-# `basshelal.dev`
+# [`basshelal.dev`](https://basshelal.dev)
 
 My personal website including my CV and personal blog
 
