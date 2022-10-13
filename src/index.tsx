@@ -13,11 +13,11 @@ const Document = () => {
             {/* Home */}
             <Route path="/" element={<Home/>}/>
 
+            {/* Blog Post */}
+            <Route path="/blog/:fileName" element={<BlogView/>}/>
+
             {/* Blog */}
             <Route path="/blog" element={<Blog/>}/>
-
-            {/* Blog Post */}
-            <Route path="/blog/:fileName" element={<BlogView/>}></Route>
 
             {/* CV */}
             <Route path="/cv" element={<CV/>}/>
