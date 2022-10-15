@@ -13,11 +13,10 @@ export const BlogHeader = (props: PropsWithChildren<{}>) => {
         fontWeight: 100,
         color: "white",
         flexGrow: 1,
-        textAlign: "center"
+        textAlign: "center",
+        textDecoration: "none"
     }
     return (<Paper square elevation={4} style={paperStyle}>
-        <Typography style={textStyle}>
-            <Link to="/blog" style={{textDecoration: "none", color: "white"}}>Bassam Helal's Blog</Link>
-        </Typography>
+        <Typography style={textStyle}>Bassam Helal's Blog</Typography>
     </Paper>)
 }

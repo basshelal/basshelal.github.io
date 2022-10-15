@@ -1,21 +1,34 @@
 import React from "react"
-import {P} from "../../common/Utils"
-import {BlogPost} from "../../common/BlogPost"
 import {useParams} from "react-router-dom"
+import styled from "styled-components"
+import {BlogHeader} from "./components/BlogHeader"
+import {BlogFooter} from "./components/BlogFooter"
 
-// View receives this from the list (which scanned all posts) and this is used to render the whole page
-export interface BlogViewProps {
-    blogPost?: BlogPost
-}
+const Root = styled.div`{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}`
 
-export const BlogView = (props: P<BlogViewProps>) => {
+const Content = styled.div`{
+  flex: 1;
+}`
+
+const Footer = styled.footer`{
+  min-height: 50px;
+  text-align: center;
+}`
+
+export const BlogView = () => {
     const {fileName} = useParams<{ fileName: string }>()
-    return (<h1>{fileName}</h1>)
-
-    // Blog Title
-    // Subtitle
-    // Date (Published and Modified), maybe even link to git of the content file
-    // estimated read-time? related to word count https://infusion.media/content-marketing/how-to-calculate-reading-time/
-    // tags, each clickable
-    // Content (can contain headings & subheadings, images and code blocks, table of contents inside the content)
+    return (<Root>
+        <BlogHeader/>
+        <Content>
+            <h1>{fileName}</h1>
+        </Content>
+        <Footer>
+            <BlogFooter/>
+        </Footer>
+    </Root>)
 }

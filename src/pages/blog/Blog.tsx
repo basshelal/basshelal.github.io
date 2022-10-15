@@ -1,40 +1,53 @@
 import React, {useState} from "react"
-import {List, ListItem} from "@mui/material"
+import {List} from "@mui/material"
 import {BlogHeader} from "./components/BlogHeader"
 import {BlogFooter} from "./components/BlogFooter"
 import {BlogPost} from "../../common/BlogPost"
-import {P, useLayoutEffectAsync} from "../../common/Utils"
+import {baseURL, useLayoutEffectAsync} from "../../common/Utils"
+import styled from "styled-components"
+import {BlogListEntry} from "./components/BlogListEntry"
 
-const manifestURL = "https://raw.githubusercontent.com/basshelal/basshelal.github.io/master/files/blog-posts/manifest.json"
+const manifestURL = `${baseURL}/files/blog-posts/manifest.json`
 
-export const Blog = (props: P) => {
+const Root = styled.div`{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}`
+
+const Content = styled.div`{
+  flex: 1;
+}`
+
+const Footer = styled.footer`{
+  min-height: 50px;
+  text-align: center;
+}`
+
+export const Blog = () => {
 
     const [blogPosts, setBlogPosts] = useState<Array<BlogPost>>([])
 
     useLayoutEffectAsync(async () => {
         const response = await fetch(manifestURL)
         if (response.ok) {
-            const json = await response.json() as Array<BlogPost>
-            setBlogPosts(json)
+            const json = await response.json()
+            if (!!json && Array.isArray(json)) {
+                setBlogPosts(json as Array<BlogPost>)
+            }
         }
-    })
+    }, [])
 
-    return (<>
+    return (<Root>
         <BlogHeader/>
-        <h1>{blogPosts.length} posts available</h1>
-        <List>
-            {blogPosts.map((blogPost) => {
-                return (<ListItem key={blogPost.fileName}>
-                    <pre>title: {blogPost.title}</pre>
-                    <pre>filename: {blogPost.fileName}</pre>
-                    <pre>datePublished: {blogPost.datePublished}</pre>
-                    <pre>tags: [{blogPost.tags.join(", ")}]</pre>
-                    <pre>------------------------------------</pre>
-                </ListItem>)
-            })}
-        </List>
-        <BlogFooter/>
-    </>)
+        <Content>
+            <List>{blogPosts.map((blogPost) =>
+                <BlogListEntry key={blogPost.title} blogPost={blogPost}/>)}
+            </List>
+        </Content>
+        <Footer>
+            <BlogFooter/>
+        </Footer>
+    </Root>)
 }
-
-// TODO: Fixed footer at bottom of page

@@ -9,7 +9,9 @@ module.exports = merge(common, {
     },
     devServer: {
         port: 3000,
-        historyApiFallback: true,
+        historyApiFallback: {
+            disableDotRule: true,
+        },
         hot: true
     },
 });
