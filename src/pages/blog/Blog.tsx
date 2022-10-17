@@ -3,11 +3,10 @@ import {List} from "@mui/material"
 import {BlogHeader} from "./components/BlogHeader"
 import {BlogFooter} from "./components/BlogFooter"
 import {BlogPost} from "../../common/BlogPost"
-import {baseURL, useLayoutEffectAsync} from "../../common/Utils"
+import {useLayoutEffectAsync} from "../../common/Utils"
 import styled from "styled-components"
 import {BlogListEntry} from "./components/BlogListEntry"
-
-const manifestURL = `${baseURL}/files/blog-posts/manifest.json`
+import {GlobalState} from "../../common/GlobalState"
 
 const Root = styled.div`{
   display: flex;
@@ -25,18 +24,14 @@ const Footer = styled.footer`{
   text-align: center;
 }`
 
+// TODO: Dark theme is needed
+
 export const Blog = () => {
 
     const [blogPosts, setBlogPosts] = useState<Array<BlogPost>>([])
 
     useLayoutEffectAsync(async () => {
-        const response = await fetch(manifestURL)
-        if (response.ok) {
-            const json = await response.json()
-            if (!!json && Array.isArray(json)) {
-                setBlogPosts(json as Array<BlogPost>)
-            }
-        }
+        setBlogPosts(await GlobalState.getAllBlogPosts())
     }, [])
 
     return (<Root>

@@ -9,9 +9,16 @@ module.exports = merge(common, {
     },
     devServer: {
         port: 3000,
+        hot: true,
         historyApiFallback: {
             disableDotRule: true,
         },
-        hot: true
+        proxy: {
+            "/api": {
+                target: "http://localhost:4000",
+                pathRewrite: {"^/api": ""},
+            },
+        },
+        watchFiles: ["files/**/*"]
     },
 });

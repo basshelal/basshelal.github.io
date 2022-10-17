@@ -1,10 +1,9 @@
 import React, {useState} from "react"
 import {BlogPost} from "../../../common/BlogPost"
-import {baseURL, P, useLayoutEffectAsync} from "../../../common/Utils"
+import {P, useLayoutEffectAsync} from "../../../common/Utils"
 import {Card, CardContent} from "@mui/material"
 import styled from "styled-components"
-
-const postBaseUrl = `${baseURL}/files/blog-posts/`
+import {URLs} from "../../../common/URLs"
 
 export interface BlogListEntryProps {
     readonly key: string
@@ -50,7 +49,7 @@ export const BlogListEntry = (props: P<BlogListEntryProps>) => {
     const [blurb, setBlurb] = useState<string>("")
 
     useLayoutEffectAsync(async () => {
-        const response = await fetch(`${postBaseUrl}/${post.fileName}`)
+        const response = await fetch(`${URLs.postsURL}/${post.fileName}`)
         if (response.ok && !!response.body) {
             const streamReader = response.body.getReader()
             const textDecoder = new TextDecoder("utf-8")
@@ -61,6 +60,7 @@ export const BlogListEntry = (props: P<BlogListEntryProps>) => {
                 text = text.concat(textDecoder.decode(readData.value))
                 const paragraphs = text.split("\n\n")
                 // Find content, first "paragraph" is always title beginning with #
+                //  so use 2nd one
                 if (paragraphs.length >= 2 && !!paragraphs[1]) {
                     setBlurb(paragraphs[1])
                     blurbFound = true
@@ -72,14 +72,15 @@ export const BlogListEntry = (props: P<BlogListEntryProps>) => {
         }
     }, [])
 
-    const raise = () => {setElevation(6)}
-    const unraise = () => {setElevation(2)}
+    const raise = () => setElevation(6)
+    const unraise = () => setElevation(2)
 
     return (<Root>
         <Card elevation={elevation} onMouseEnter={raise} onMouseLeave={unraise}
               style={{width: "80vw"}}>
             <CardContent>
                 <Title href={`/blog/${post.fileName}`}>{post.title}</Title>
+                {/* TODO use markdown rendering for blurb! */}
                 <Blurb>{blurb}</Blurb>
                 <Date>{post.datePublished}</Date>
             </CardContent>
