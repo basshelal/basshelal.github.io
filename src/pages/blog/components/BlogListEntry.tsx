@@ -3,7 +3,7 @@ import {BlogPost} from "../../../common/BlogPost"
 import {P, useLayoutEffectAsync} from "../../../common/Utils"
 import {Card, CardContent} from "@mui/material"
 import styled from "styled-components"
-import {URLs} from "../../../common/URLs"
+import {API} from "../../../common/API"
 
 export interface BlogListEntryProps {
     readonly key: string
@@ -49,27 +49,7 @@ export const BlogListEntry = (props: P<BlogListEntryProps>) => {
     const [blurb, setBlurb] = useState<string>("")
 
     useLayoutEffectAsync(async () => {
-        const response = await fetch(`${URLs.postsURL}/${post.fileName}`)
-        if (response.ok && !!response.body) {
-            const streamReader = response.body.getReader()
-            const textDecoder = new TextDecoder("utf-8")
-            let text = String()
-            let blurbFound = false
-            let readData = await streamReader.read()
-            while (!blurbFound && !readData.done) {
-                text = text.concat(textDecoder.decode(readData.value))
-                const paragraphs = text.split("\n\n")
-                // Find content, first "paragraph" is always title beginning with #
-                //  so use 2nd one
-                if (paragraphs.length >= 2 && !!paragraphs[1]) {
-                    setBlurb(paragraphs[1])
-                    blurbFound = true
-                } else {
-                    readData = await streamReader.read()
-                }
-            }
-            await streamReader.cancel()
-        }
+        setBlurb(await API.getBlogPostBlurb(post.fileName))
     }, [])
 
     const raise = () => setElevation(6)

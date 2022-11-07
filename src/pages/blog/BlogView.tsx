@@ -36,7 +36,7 @@ const MarkDownContainerParent = styled.div`{
 }`
 
 const MarkDownContainer = styled.div`{
-  width: 90vw;
+  width: clamp(400px, 90vw, 1200px);
 }`
 
 const Title = styled.h1`{
@@ -54,6 +54,16 @@ const TextParagraph = styled.p`{
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.75rem;
+  color: black;
+  padding: 4px;
+  margin: 16px 8px;
+  text-align: justify;
+}`
+
+const PublishedText = styled.p`{
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 1rem;
   color: black;
   padding: 8px;
   margin: 8px;
@@ -80,14 +90,19 @@ export const BlogView = () => {
     }
 
     return (<Root>
-        <BlogHeader/>
+        <BlogHeader href="/blog"/>
         <Content>
             <MarkDownContainerParent>
                 <MarkDownContainer>
+                    {/* TODO add these plugins:
+                         https://github.com/rehypejs/rehype-highlight
+                         https://github.com/rehypejs/rehype-raw
+                         https://github.com/rehypejs/rehype-sanitize */}
                     <ReactMarkdown remarkPlugins={[remarkGfm]}
                                    components={components}>
                         {fileData}
                     </ReactMarkdown>
+                    <PublishedText>Published on {blogPost?.datePublished}</PublishedText>
                 </MarkDownContainer>
             </MarkDownContainerParent>
         </Content>
