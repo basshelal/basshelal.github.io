@@ -1,15 +1,14 @@
 import * as React from "react"
-import {PropsWithChildren, useState} from "react"
-import {Avatar, AvatarProps} from "@mui/material"
+import {ImgHTMLAttributes, PropsWithChildren, useState} from "react"
 import {useLayoutEffectAsync} from "../../../common/Utils"
+import {LoadingSpinner} from "../../../common/components/LoadingSpinner"
 
-export const GithubImage = (props: PropsWithChildren<AvatarProps>) => {
+export const GithubImage = (props: PropsWithChildren<ImgHTMLAttributes<HTMLImageElement>>) => {
     const [avatarUrl, setAvatarUrl] = useState<string>("")
     const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
     useLayoutEffectAsync(async () => {
-        const response = await fetch("https://api.github.com/users/basshelal")
-        const json: any = await response.json()
+        const json: any = await (await fetch("https://api.github.com/users/basshelal")).json()
         const url = json["avatar_url"]
         if (!!url) {
             setAvatarUrl(url)
@@ -17,11 +16,22 @@ export const GithubImage = (props: PropsWithChildren<AvatarProps>) => {
         }
     }, [])
 
-    return (<Avatar src={avatarUrl}
-                    variant="circular"
-                    alt="Github avatar"
-                    title="Github avatar"
-                    {...props}>
-        {props.children}
-    </Avatar>)
+    const Image = () => {
+        if (isLoaded) {
+            return (<>
+                <img src={avatarUrl}
+                     alt="Github avatar"
+                     title="Github avatar"
+                     {...props}>
+                    {props.children}
+                </img>
+            </>)
+        } else {
+            return (<>
+                <LoadingSpinner {...props}/>
+            </>)
+        }
+    }
+
+    return (<Image/>)
 }

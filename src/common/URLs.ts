@@ -7,4 +7,6 @@ export const URLs = new class {
     public readonly filesURL = `${this.baseURL}/files`
     public readonly postsURL = `${this.filesURL}/blog-posts`
     public readonly manifestURL = `${this.postsURL}/manifest.json`
+    public readonly imagesURL = `${this.filesURL}/images`
+    public readonly loadingSpinnerURL = `${this.filesURL}/images/LoadingSpinner.gif`
 }

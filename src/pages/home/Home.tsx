@@ -1,20 +1,17 @@
 import * as React from "react"
-import {HTMLAttributes, PropsWithChildren} from "react"
+import {PropsWithChildren} from "react"
 import {GithubImage} from "./components/GithubImage"
 import styled from "styled-components"
-import {Button, ButtonProps, List, ListItem} from "@mui/material"
 import {Link} from "react-router-dom"
 
-export const Centered = (props: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {
-    return (<div style={{
-        display: "flex",
-        flexDirection: "row",
-        alignContent: "end",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "0px"
-    }} {...props}>{props.children}</div>)
-}
+export const Centered = styled.div`{
+  display: flex;
+  flex-direction: row;
+  align-content: end;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+}`
 
 const Root = styled.div`{
   display: flex;
@@ -42,11 +39,12 @@ const NameHeading = styled.h1`{
   margin: 0;
 }`
 
-const Image = styled(GithubImage)`html {
-  width: 256px;
-  height: 256px;
+const Avatar = styled(GithubImage)`{
+  width: clamp(100px, 30vw, 400px);
+  height: auto;
   margin-top: 64px;
   box-shadow: 0 0 10px 5px #0000007F;
+  border-radius: clamp(100px, 30vw, 400px);
 }`
 
 const Subtitle = styled.h2`{
@@ -66,34 +64,46 @@ const BottomText = styled.a`{
   margin: 32px 0;
 }`
 
+const ButtonContainer = styled.div`{
+  display: flex;
+  flex-direction: row;
+  align-content: end;
+  align-items: center;
+  justify-content: center;
+  margin: 12px;
+}`
+
+const Button = styled.button`{
+  text-transform: none;
+  background: #880e4f;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 1.75rem + 1vw, 2.5rem);
+  border-radius: 16px;
+  cursor: pointer;
+  width: 90vw;
+  border: 0;
+  box-shadow: 0 0 4px 2px #0000007F;
+  padding: 12px;
+}`
+
 export const Home = () => {
 
-    const ImageStyle: React.CSSProperties = {
-        width: "clamp(100px, 30vw, 400px)",
-        height: "auto",
-        marginTop: "64px",
-        boxShadow: "0 0 10px 5px #0000007F"
-    }
-
-    const PageButton = (props: PropsWithChildren<ButtonProps>) => {
-        return (<ListItem>
-            <Button style={{
-                textTransform: "none", background: "#880E4F", color: "white",
-                fontFamily: "Roboto", fontWeight: 300, fontSize: "2rem", borderRadius: "16px"
-            }}
-                    fullWidth variant="contained" {...props}>{props.children}</Button>
-        </ListItem>)
+    const PageButton = (props: PropsWithChildren<{ to: string, text: string }>) => {
+        return (<ButtonContainer>
+            <Link to={props.to}>
+                <Button{...props} title={`Go to ${props.text}`}>{props.text}</Button>
+            </Link>
+        </ButtonContainer>)
     }
 
     return (<Root>
         <Content>
-            <Centered><GithubImage style={ImageStyle}/></Centered>
+            <Centered><Avatar/></Centered>
             <Centered><NameHeading>Bassam Helal</NameHeading></Centered>
-            <Centered><Subtitle></Subtitle></Centered>
-            <List>
-                <Link to="/cv" style={{textDecoration: "none"}}><PageButton>CV</PageButton></Link>
-                <Link to="/blog" style={{textDecoration: "none"}}><PageButton>Blog</PageButton></Link>
-            </List>
+            <PageButton to="/cv" text="CV"/>
+            <PageButton to="/blog" text="Blog"/>
         </Content>
         <Footer><BottomText target="_blank" href="https://github.com/basshelal/basshelal.github.io">
             View source on Github
