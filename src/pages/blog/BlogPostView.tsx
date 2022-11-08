@@ -69,15 +69,20 @@ const PublishedText = styled.p`{
   margin: 8px;
 }`
 
-export const BlogView = () => {
+export const BlogPostView = () => {
     const {fileName} = useParams<{ fileName: string }>()
     const [fileData, setFileData] = useState<string>("")
     const [blogPost, setBlogPost] = useState<BlogPost>()
+    const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
     useLayoutEffectAsync(async () => {
         if (!!fileName) {
-            setBlogPost(await GlobalState.getBlogPost(fileName))
-            setFileData(await API.getBlogPostText(fileName))
+            // fetch all asynchronously and independently but await them all to set isLoaded
+            await Promise.all([
+                GlobalState.getBlogPost(fileName).then(setBlogPost),
+                API.getBlogPostText(fileName).then(setFileData)
+            ])
+            setIsLoaded(true)
         }
     }, [])
 
@@ -89,22 +94,34 @@ export const BlogView = () => {
         a: (props) => <a target="_blank" {...props}>{props.children}</a>
     }
 
-    return (<Root>
-        <BlogHeader href="/blog"/>
-        <Content>
-            <MarkDownContainerParent>
-                <MarkDownContainer>
-                    {/* TODO add these plugins:
+    const MarkdownContent = () => {
+        if (isLoaded) {
+            return (<>
+                <MarkDownContainerParent>
+                    <MarkDownContainer>
+                        {/* TODO add these plugins:
                          https://github.com/rehypejs/rehype-highlight
                          https://github.com/rehypejs/rehype-raw
                          https://github.com/rehypejs/rehype-sanitize */}
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}
-                                   components={components}>
-                        {fileData}
-                    </ReactMarkdown>
-                    <PublishedText>Published on {blogPost?.datePublished}</PublishedText>
-                </MarkDownContainer>
-            </MarkDownContainerParent>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}
+                                       components={components}>
+                            {fileData}
+                        </ReactMarkdown>
+                        <PublishedText>Published on {blogPost?.datePublished}</PublishedText>
+                    </MarkDownContainer>
+                </MarkDownContainerParent>
+            </>)
+        } else {
+            return (<>
+                {/* TODO loading gif instead of empty, maybe even something in the case of error as well*/}
+            </>)
+        }
+    }
+
+    return (<Root>
+        <BlogHeader href="/blog"/>
+        <Content>
+            <MarkdownContent/>
         </Content>
         <Footer>
             <BlogFooter/>

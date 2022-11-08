@@ -5,7 +5,7 @@ import {CV} from "./pages/cv/CV"
 import {Blog} from "./pages/blog/Blog"
 import {Home} from "./pages/home/Home"
 import {NotFound} from "./pages/not-found/NotFound"
-import {BlogView} from "./pages/blog/BlogView"
+import {BlogPostView} from "./pages/blog/BlogPostView"
 
 const Document = () => {
     return (<BrowserRouter>
@@ -14,7 +14,7 @@ const Document = () => {
             <Route path="/" element={<Home/>}/>
 
             {/* Blog Post */}
-            <Route path="/blog/:fileName" element={<BlogView/>}/>
+            <Route path="/blog/:fileName" element={<BlogPostView/>}/>
 
             {/* Blog */}
             <Route path="/blog" element={<Blog/>}/>

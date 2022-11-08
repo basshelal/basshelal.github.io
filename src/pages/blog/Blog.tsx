@@ -27,19 +27,32 @@ const Footer = styled.footer`{
 // TODO: Dark theme is needed
 
 export const Blog = () => {
-
     const [blogPosts, setBlogPosts] = useState<Array<BlogPost>>([])
+    const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
     useLayoutEffectAsync(async () => {
-        setBlogPosts(await GlobalState.getAllBlogPosts())
+        await Promise.all([
+            GlobalState.getAllBlogPosts().then(setBlogPosts)
+        ])
+        setIsLoaded(true)
     }, [])
+
+    const BlogPostList = () => {
+        if (isLoaded) {
+            return (<>
+                <List>{blogPosts.map((blogPost) =>
+                    <BlogListEntry key={blogPost.title} blogPost={blogPost}/>)}
+                </List>
+            </>)
+        } else {
+            return (<></>)
+        }
+    }
 
     return (<Root>
         <BlogHeader/>
         <Content>
-            <List>{blogPosts.map((blogPost) =>
-                <BlogListEntry key={blogPost.title} blogPost={blogPost}/>)}
-            </List>
+            <BlogPostList/>
         </Content>
         <Footer>
             <BlogFooter/>

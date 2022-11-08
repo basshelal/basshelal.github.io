@@ -25,7 +25,7 @@ export const BlogHeader = (props: PropsWithChildren<{ href?: string }>) => {
     }
     // TODO: Standardized font-size clamp values, (at least min and max viewport values so scalability moves equally)
     //  use this: https://clamp.font-size.app/
-    return (<Paper square elevation={4} style={paperStyle}>
+    return (<Paper square elevation={8} style={paperStyle}>
         <Title><Link href={props.href}>Bassam Helal's Blog</Link></Title>
     </Paper>)
 }

@@ -4,6 +4,9 @@ import {P, useLayoutEffectAsync} from "../../../common/Utils"
 import {Card, CardContent} from "@mui/material"
 import styled from "styled-components"
 import {API} from "../../../common/API"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import {Options} from "react-markdown/lib/ast-to-react"
 
 export interface BlogListEntryProps {
     readonly key: string
@@ -26,12 +29,15 @@ const Title = styled.a`{
   font-weight: 400;
 }`
 
-const Blurb = styled.p`{
+const TextParagraph = styled.p`{
   font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
   font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: black;
   margin: 8px;
   padding: 2px;
+  text-align: justify;
 }`
 
 const Date = styled.p`{
@@ -45,24 +51,45 @@ const Date = styled.p`{
 
 export const BlogListEntry = (props: P<BlogListEntryProps>) => {
     const post = props.blogPost
-    const [elevation, setElevation] = useState<number>(2)
     const [blurb, setBlurb] = useState<string>("")
+    const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
     useLayoutEffectAsync(async () => {
-        setBlurb(await API.getBlogPostBlurb(post.fileName))
+        await Promise.all([
+            API.getBlogPostBlurb(post.fileName).then(setBlurb)
+        ])
+        setIsLoaded(true)
     }, [])
 
-    const raise = () => setElevation(6)
-    const unraise = () => setElevation(2)
+    const components: Options["components"] = {
+        h1: (props) => <Title></Title>,
+        p: (props) => <TextParagraph>{props.children}</TextParagraph>,
+        img: (props) => <img></img>,
+        code: (props) => <code {...props}>{props.children}</code>,
+        a: (props) => <a target="_blank" {...props}>{props.children}</a>
+    }
+
+    const Content = () => {
+        if (isLoaded) {
+            return (<>
+                <Title href={`/blog/${post.fileName}`}>{post.title}</Title>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}
+                               components={components}>
+                    {blurb}
+                </ReactMarkdown>
+                <Date>{post.datePublished}</Date>
+            </>)
+        } else {
+            return (<>
+                {/* TODO loading gif instead of empty, maybe even something in the case of error as well*/}
+            </>)
+        }
+    }
 
     return (<Root>
-        <Card elevation={elevation} onMouseEnter={raise} onMouseLeave={unraise}
-              style={{width: "80vw"}}>
+        <Card elevation={2} style={{width: "80vw"}}>
             <CardContent>
-                <Title href={`/blog/${post.fileName}`}>{post.title}</Title>
-                {/* TODO use markdown rendering for blurb! */}
-                <Blurb>{blurb}</Blurb>
-                <Date>{post.datePublished}</Date>
+                <Content/>
             </CardContent>
         </Card>
     </Root>)

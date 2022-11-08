@@ -12,9 +12,8 @@
     "file-server-dev": "http-server -p 4000 -c-1"
   },
   "devDependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.9",
+    "@mui/material": "^5.10.13",
+    "@mui/styled-engine-sc": "^5.10.6",
     "@types/jest": "^29.1.2",
     "@types/node": "^18.8.5",
     "@types/react": "^18.0.21",
