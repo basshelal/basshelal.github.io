@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import {List} from "@mui/material"
 import {BlogHeader} from "./components/BlogHeader"
 import {BlogFooter} from "./components/BlogFooter"
 import {BlogPost} from "../../common/BlogPost"
@@ -7,6 +6,8 @@ import {useLayoutEffectAsync} from "../../common/Utils"
 import styled from "styled-components"
 import {BlogListEntry} from "./components/BlogListEntry"
 import {GlobalState} from "../../common/GlobalState"
+import {LoadingSpinner} from "../../common/components/LoadingSpinner"
+import {Centered} from "../home/Home"
 
 const Root = styled.div`{
   display: flex;
@@ -39,13 +40,13 @@ export const Blog = () => {
 
     const BlogPostList = () => {
         if (isLoaded) {
-            return (<>
-                <List>{blogPosts.map((blogPost) =>
-                    <BlogListEntry key={blogPost.title} blogPost={blogPost}/>)}
-                </List>
-            </>)
+            return (<div>{blogPosts.map((blogPost) =>
+                <BlogListEntry key={blogPost.title} blogPost={blogPost}/>
+            )}</div>)
         } else {
-            return (<></>)
+            return (<Centered>
+                <LoadingSpinner size={128}/>
+            </Centered>)
         }
     }
 

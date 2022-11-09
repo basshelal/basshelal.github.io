@@ -1,6 +1,13 @@
 import React, {PropsWithChildren} from "react"
-import {Paper} from "@mui/material"
 import styled from "styled-components"
+
+const Root = styled.div`{
+  background-color: #880e4f;
+  width: 100vw;
+  box-shadow: 0 0 16px 1px #0000007F;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}`
 
 const Title = styled.h1`{
   font-family: "Roboto", sans-serif;
@@ -19,13 +26,9 @@ const Link = styled.a`{
 }`
 
 export const BlogHeader = (props: PropsWithChildren<{ href?: string }>) => {
-    const paperStyle: React.CSSProperties = {
-        backgroundColor: "#880E4F",
-        width: "100vw"
-    }
     // TODO: Standardized font-size clamp values, (at least min and max viewport values so scalability moves equally)
     //  use this: https://clamp.font-size.app/
-    return (<Paper square elevation={8} style={paperStyle}>
+    return (<Root>
         <Title><Link href={props.href}>Bassam Helal's Blog</Link></Title>
-    </Paper>)
+    </Root>)
 }
