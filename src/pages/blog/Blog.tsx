@@ -25,6 +25,14 @@ const Footer = styled.footer`{
   text-align: center;
 }`
 
+const NoPostsYet = styled.div`{
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 64px;
+}`
+
+
 // TODO: Dark theme is needed
 
 export const Blog = () => {
@@ -38,6 +46,7 @@ export const Blog = () => {
         setIsLoaded(true)
     }, [])
 
+
     const BlogPostList = () => {
         if (isLoaded) {
             return (<div>{blogPosts.map((blogPost) =>
@@ -45,7 +54,8 @@ export const Blog = () => {
             )}</div>)
         } else {
             return (<Centered>
-                <LoadingSpinner size={128}/>
+                <NoPostsYet>No Posts yet</NoPostsYet>
+                {/*<LoadingSpinner size={128}/>*/}
             </Centered>)
         }
     }

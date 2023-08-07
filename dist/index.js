@@ -195,25 +195,30 @@
 }`,Ua=Mt.footer`{
   min-height: 50px;
   text-align: center;
-}`,$a=()=>{const[e,t]=(0,r.useState)([]),[n,l]=(0,r.useState)(!1);return nn((()=>function(e,t,n,r){return new(n||(n=Promise))((function(l,o){function i(e){try{u(r.next(e))}catch(e){o(e)}}function a(e){try{u(r.throw(e))}catch(e){o(e)}}function u(e){var t;e.done?l(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}u((r=r.apply(e,t||[])).next())}))}(void 0,void 0,void 0,(function*(){yield Promise.all([Na.getAllBlogPosts().then(t)]),l(!0)}))),[]),r.createElement(ja,null,r.createElement(xn,null),r.createElement(Ba,null,r.createElement((()=>n?r.createElement("div",null,e.map((e=>r.createElement(Da,{key:e.title,blogPost:e})))):r.createElement(on,null,r.createElement(ln,{size:128}))),null)),r.createElement(Ua,null,r.createElement(wn,null)))},Ha=()=>r.createElement(r.Fragment,null,"Page Not Found");const Va=Mt.div`{
+}`,$a=Mt.div`{
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 64px;
+}`,Ha=()=>{const[e,t]=(0,r.useState)([]),[n,l]=(0,r.useState)(!1);return nn((()=>function(e,t,n,r){return new(n||(n=Promise))((function(l,o){function i(e){try{u(r.next(e))}catch(e){o(e)}}function a(e){try{u(r.throw(e))}catch(e){o(e)}}function u(e){var t;e.done?l(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}u((r=r.apply(e,t||[])).next())}))}(void 0,void 0,void 0,(function*(){yield Promise.all([Na.getAllBlogPosts().then(t)]),l(!0)}))),[]),r.createElement(ja,null,r.createElement(xn,null),r.createElement(Ba,null,r.createElement((()=>n?r.createElement("div",null,e.map((e=>r.createElement(Da,{key:e.title,blogPost:e})))):r.createElement(on,null,r.createElement($a,null,"No Posts yet"))),null)),r.createElement(Ua,null,r.createElement(wn,null)))},Va=()=>r.createElement(r.Fragment,null,"Page Not Found");const Wa=Mt.div`{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-}`,Wa=Mt.div`{
+}`,qa=Mt.div`{
   flex: 1;
-}`,qa=Mt.footer`{
+}`,Qa=Mt.footer`{
   min-height: 50px;
   text-align: center;
-}`,Qa=Mt.div`{
+}`,Ya=Mt.div`{
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
   justify-content: center;
-}`,Ya=Mt.div`{
+}`,Ka=Mt.div`{
   width: clamp(400px, 90vw, 1200px);
-}`,Ka=Mt.h1`{
+}`,Ga=Mt.h1`{
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: clamp(2rem, -2rem + 20vw, 3rem);
@@ -221,7 +226,7 @@
   text-align: center;
   padding: 8px;
   margin: 8px;
-}`,Ga=Mt.p`{
+}`,Xa=Mt.p`{
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
@@ -230,11 +235,11 @@
   padding: 4px;
   margin: 16px 8px;
   text-align: justify;
-}`,Xa=Mt.p`{
+}`,Ja=Mt.p`{
   font-family: "Roboto Mono", monospace;
   font-weight: 400;
   font-size: 1rem;
   color: black;
   padding: 8px;
   margin: 8px;
-}`,Ja=()=>{const{fileName:e}=function(){let{matches:e}=r.useContext($),t=e[e.length-1];return t?t.params:{}}(),[t,n]=(0,r.useState)(""),[l,o]=(0,r.useState)(),[i,a]=(0,r.useState)(!1);nn((()=>function(e,t,n,r){return new(n||(n=Promise))((function(l,o){function i(e){try{u(r.next(e))}catch(e){o(e)}}function a(e){try{u(r.throw(e))}catch(e){o(e)}}function u(e){var t;e.done?l(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}u((r=r.apply(e,t||[])).next())}))}(void 0,void 0,void 0,(function*(){e&&(yield Promise.all([Na.getBlogPost(e).then(o),En.getBlogPostText(e).then(n)]),a(!0))}))),[]);const u={h1:e=>r.createElement(Ka,null,e.children),p:e=>r.createElement(Ga,null,e.children),img:e=>r.createElement("img",Object.assign({},e),e.children),code:e=>r.createElement("code",Object.assign({},e),e.children),a:e=>r.createElement("a",Object.assign({target:"_blank"},e),e.children)};return r.createElement(Va,null,r.createElement(xn,{href:"/blog"}),r.createElement(Wa,null,r.createElement((()=>i?r.createElement(r.Fragment,null,r.createElement(Qa,null,r.createElement(Ya,null,r.createElement(pi,{remarkPlugins:[Fa],components:u},t),r.createElement(Xa,null,"Published on ",null==l?void 0:l.datePublished)))):r.createElement(r.Fragment,null)),null)),r.createElement(qa,null,r.createElement(wn,null)))};(0,i.s)(document.getElementById("root")).render(r.createElement((()=>r.createElement(ae,null,r.createElement(ne,null,r.createElement(ee,{path:"/",element:r.createElement(mn,null)}),r.createElement(ee,{path:"/blog/:fileName",element:r.createElement(Ja,null)}),r.createElement(ee,{path:"/blog",element:r.createElement($a,null)}),r.createElement(ee,{path:"/cv",element:r.createElement(yn,null)}),r.createElement(ee,{path:"*",element:r.createElement(Ha,null)})))),null))})()})();
+}`,Za=()=>{const{fileName:e}=function(){let{matches:e}=r.useContext($),t=e[e.length-1];return t?t.params:{}}(),[t,n]=(0,r.useState)(""),[l,o]=(0,r.useState)(),[i,a]=(0,r.useState)(!1);nn((()=>function(e,t,n,r){return new(n||(n=Promise))((function(l,o){function i(e){try{u(r.next(e))}catch(e){o(e)}}function a(e){try{u(r.throw(e))}catch(e){o(e)}}function u(e){var t;e.done?l(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}u((r=r.apply(e,t||[])).next())}))}(void 0,void 0,void 0,(function*(){e&&(yield Promise.all([Na.getBlogPost(e).then(o),En.getBlogPostText(e).then(n)]),a(!0))}))),[]);const u={h1:e=>r.createElement(Ga,null,e.children),p:e=>r.createElement(Xa,null,e.children),img:e=>r.createElement("img",Object.assign({},e),e.children),code:e=>r.createElement("code",Object.assign({},e),e.children),a:e=>r.createElement("a",Object.assign({target:"_blank"},e),e.children)};return r.createElement(Wa,null,r.createElement(xn,{href:"/blog"}),r.createElement(qa,null,r.createElement((()=>i?r.createElement(r.Fragment,null,r.createElement(Ya,null,r.createElement(Ka,null,r.createElement(pi,{remarkPlugins:[Fa],components:u},t),r.createElement(Ja,null,"Published on ",null==l?void 0:l.datePublished)))):r.createElement(r.Fragment,null)),null)),r.createElement(Qa,null,r.createElement(wn,null)))};(0,i.s)(document.getElementById("root")).render(r.createElement((()=>r.createElement(ae,null,r.createElement(ne,null,r.createElement(ee,{path:"/",element:r.createElement(mn,null)}),r.createElement(ee,{path:"/blog/:fileName",element:r.createElement(Za,null)}),r.createElement(ee,{path:"/blog",element:r.createElement(Ha,null)}),r.createElement(ee,{path:"/cv",element:r.createElement(yn,null)}),r.createElement(ee,{path:"*",element:r.createElement(Va,null)})))),null))})()})();
