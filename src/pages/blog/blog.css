@@ -1,0 +1,17 @@
+@import "../../global.css";
+
+html {
+    text-align: center;
+}
+
+.blog-title {
+    font-size: 3rem;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.blog-title a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--text-color);
+}

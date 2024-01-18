@@ -1,0 +1,60 @@
+@import "../../global.css";
+
+#links-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+#links-container a {
+    margin: 8px 16px 16px 16px;
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent-color);
+    margin: 8px 0;
+}
+
+.section {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.section-hr {
+    background-color: var(--text-color);
+    color: var(--text-color);
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.section b {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+#print-button {
+    text-transform: none;
+    background: var(--accent-color);
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 12px;
+    cursor: pointer;
+    border: 0;
+    @media print {
+        display: none;
+    }
+}

@@ -1,0 +1,45 @@
+@import "../../global.css";
+@import "./blog.css";
+
+.article-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.article-subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+}
+
+.article-content {
+    width: 80%;
+    margin: auto;
+}
+
+.article-content p {
+    text-align: start;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.article-content h2 {
+}
+
+.article-end-hr {
+    margin-top: 32px;
+    width: 80%;
+    height: 1px;
+    background-color: var(--text-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}

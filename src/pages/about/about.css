@@ -1,0 +1,16 @@
+@import "../../global.css";
+
+html {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.about-content{
+    width: 80%;
+    margin: auto;
+}

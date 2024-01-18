@@ -1,6 +1,2 @@
-node_modules
-npm-debug.log
-.env
 .idea
 .DS_Store
-package-lock.json

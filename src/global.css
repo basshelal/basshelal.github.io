@@ -1,0 +1,68 @@
+/* Global styles site-wide */
+
+@import "./fonts.css";
+
+:root {
+    --bg-color: #101010;
+    --text-color: #FFFFFF;
+    --accent-color: #C6267F;
+    --text-font: Roboto, sans-serif
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    color: #2962FF;
+}
+
+html {
+    font-family: var(--text-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+}
+
+.centered {
+    display: flex;
+    flex-direction: row;
+    align-content: end;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#name-title {
+    color: var(--accent-color);
+    font-size: 6rem;
+    text-align: center;
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-hr {
+    margin-top: 32px;
+    width: 80%;
+    height: 1px;
+    background-color: var(--text-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
