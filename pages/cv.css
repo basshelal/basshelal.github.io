@@ -1,4 +1,8 @@
-@import "../../global.css";
+@import "../global.css";
+
+html {
+    margin: 8px;
+}
 
 #links-container {
     display: flex;

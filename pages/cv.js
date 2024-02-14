@@ -10,12 +10,10 @@ function restoreColors(root) {
     root.style.setProperty("--accent-color", "#C6267F");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const printButton = document.getElementById("print-button"); // HTMLButtonElement
-    const root = document.querySelector(":root");
-    printButton.onclick = () => {
-        setColorsToBePrintFriendly(root);
-        window.print();
-        restoreColors(root);
-    };
-});
+const printButton = document.getElementById("print-button"); // HTMLButtonElement
+const root = document.querySelector(":root");
+printButton.onclick = () => {
+    setColorsToBePrintFriendly(root);
+    window.print();
+    restoreColors(root);
+};
