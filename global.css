@@ -22,7 +22,12 @@ html {
     font-family: var(--text-font);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 500;
 }
 
@@ -41,11 +46,15 @@ ul {
 
 #name-title {
     color: var(--accent-color);
-    font-size: 6rem;
+    font-size: 5rem;
     text-align: center;
     font-weight: 100;
     padding: 0;
     margin: 0;
+}
+
+.nastaliq {
+    font-family: "Gulzar";
 }
 
 .footer-hr {

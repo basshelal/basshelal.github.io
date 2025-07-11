@@ -20,7 +20,7 @@ html {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 300;
     color: var(--accent-color);
     margin: 8px 0;
@@ -29,6 +29,7 @@ html {
 .section {
     padding-left: 16px;
     padding-right: 16px;
+    line-height: 1;
 }
 
 .section-hr {
@@ -58,6 +59,7 @@ html {
     padding: 12px;
     cursor: pointer;
     border: 0;
+
     @media print {
         display: none;
     }
